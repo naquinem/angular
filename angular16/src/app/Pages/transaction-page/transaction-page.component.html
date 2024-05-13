@@ -1,0 +1,67 @@
+<div
+  class="grid grid-cols-1 text-center mt-10"
+>
+  <div class="flex justify-center align-middle shadow">
+    <h1
+      class="text-3xl text-center"
+    >
+      Transaction Details
+    </h1>
+    <button
+      class="text-center mx-10 px-5 bg-sky-600 border-4 rounded-2xl border-sky-200 text-white text-1xl"
+      routerLink="/protected/logistics"
+    >
+      Add Transaction
+    </button>
+  </div>
+
+  <div
+    class="flex justify-center align-middle text-center mt-5 w-auto"
+  >
+    <table>
+      <thead class="text-1xl">
+        <tr>
+          <th class="px-5">
+            Logistics name
+          </th>
+          <th class="px-5">
+            Serial Number
+          </th>
+          <th class="px-5">
+            Control Number
+          </th>
+          <th class="px-5">
+            ECN
+          </th>
+          <th>
+            Actions
+          </th>
+        </tr>
+      </thead>
+      <tbody class="text-sm">
+        <tr *ngFor="let logisticsDetail of this.logistics">
+          <td class="px-5">
+            {{logisticsDetail.logistics}}
+          </td>
+          <td class="px-5">
+            {{logisticsDetail.serial_number}}
+          </td>
+          <td class="px-5">
+            {{logisticsDetail.control_number}}
+          </td>
+          <td class="px-5">
+            {{logisticsDetail.ecn}}
+          </td>
+          <td>
+            <button (click)="handleEdit(logisticsDetail.id)" class="btn bg-blue-400 mx-1 my-1 p-1 px-5 rounded">
+              Edit
+            </button>
+            <button (click)="handleDelete(logisticsDetail.id)" class="btn bg-red-400 mx-1 my-1 p-1 px-3 rounded">
+              Delete
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
